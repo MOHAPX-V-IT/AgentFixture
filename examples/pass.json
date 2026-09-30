@@ -1,0 +1,8 @@
+{
+  "calls": [],
+  "expect": {
+    "forbidden_calls": [
+      "bookings.create"
+    ]
+  }
+}

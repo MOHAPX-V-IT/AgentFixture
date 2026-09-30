@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentfixture"
+version = "0.2.0"
+description = "Record and replay tool calls. Catch agent behavior regressions."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Aleksei Maryshev"}]
+keywords = ["ai", "agents", "testing", "developer-tools"]
+classifiers = ["Development Status :: 3 - Alpha", "Programming Language :: Python :: 3", "Operating System :: OS Independent"]
+
+[project.optional-dependencies]
+pytest = ["pytest>=8,<10"]
+dev = ["pytest>=8,<10", "build>=1,<2"]
+
+[project.scripts]
+agentfixture = "agentfixture.__main__:main"
+
+[project.entry-points.pytest11]
+agentfixture = "agentfixture.pytest_plugin"
+
+[tool.setuptools.packages.find]
+include = ["agentfixture*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
